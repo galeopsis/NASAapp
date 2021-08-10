@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">NASA Picture of the Day</string>
+    <string name="overview">This movie is about the movie</string>
+    <string name="rating">Copyright:</string>
+    <string name="the_movie_overview_page">The Movie Overview Page</string>
+    <string name="btn_overview_text">Overview</string>
+    <string name="todo">todo</string>
+    <string name="default_overview">Вдохновившись самопожертвованием Супермена, Брюс Уэйн вновь обретает веру в человечество. Он заручается поддержкой новой союзницы Дианы Принс, чтобы сразиться с ещё более могущественным противником. Бэтмен и Чудо-женщина набирают команду сверхлюдей для борьбы с пробудившейся угрозой.</string>
+    <string name="default_release_date">18.03.2021 г.</string>
+    <string name="default_release_date2">31.03.2021 г.</string>
+    <string name="default_overview2">После видения Девы Марии девушка Элис обретает способность исцеления больных. Слухи о творимых ею чудесах привлекают огромное количество людей со всех концов света. Среди них — скандальный журналист, который надеется с помощью сенсации спасти свою карьеру. Ему предстоит выяснить, является ли происходящее божественным провидением или Алисой управляют зловещие силы.</string>
+    <string name="released">Дата:</string>
+    <string name="default_movieRating">8.5</string>
+    <string name="default_movieTitle">Лига справедливости Зака Снайдера</string>
+    <string name="BestPicture">The Best Picture</string>
+    <string name="error">Ошибка</string>
+    <string name="reload">Перезагрузить</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="action_back">Back</string>
+    <string name="action_about">About</string>
+    <string name="popular_movies">Popular movies</string>
+    <string name="settings">settings</string>
+    <string name="main">main</string>
+    <string name="favorite">favorite</string>
+    <string name="search">search</string>
+    <string name="adult">18+</string>
+    <string name="search_wiki">Найти в Википедии</string>
+    <string name="wiki_helper_text">Введено символов:</string>
+    <string name="date">Pick date</string>
+    <string name="the_title">The Title</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="explanation">Explanation:</string>
+    <string name="this_is_the_test_text">This is the test text</string>
+</resources>
