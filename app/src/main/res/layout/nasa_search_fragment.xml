@@ -18,7 +18,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="@string/search_wiki"
+            android:hint="@string/wiki_search"
             app:boxBackgroundColor="?android:attr/textColorTertiaryInverse"
             app:counterEnabled="true"
             app:counterMaxLength="20"
@@ -26,7 +26,7 @@
             app:endIconCheckable="true"
             app:endIconDrawable="@drawable/ic_wikipedia"
             app:endIconMode="custom"
-            app:helperText="@string/wiki_helper_text"
+            app:helperText="characters entered:"
             app:helperTextTextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,13 +62,14 @@
             android:id="@+id/dateTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/app_margin_top"
             android:layout_marginEnd="@dimen/app_margin_top"
+            android:layout_marginBottom="@dimen/app_margin_top"
             android:text="@string/date"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@id/fab"
-            app:layout_constraintTop_toBottomOf="@id/photoView" />
+            app:layout_constraintTop_toBottomOf="@id/photoView"
+            />
 
         <FrameLayout
             android:id="@+id/loadingLayout"

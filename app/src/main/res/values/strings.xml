@@ -29,10 +29,13 @@
     <string name="wiki_helper_text">Введено символов:</string>
     <string name="date">Pick date</string>
     <string name="the_title">The Title</string>
+    <string name="date_selected">Date selected: </string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="explanation">Explanation:</string>
     <string name="this_is_the_test_text">This is the test text</string>
+    <string name="wiki_search">Wiki Search</string>
+    <string name="_2021_01_01">2021/01/01</string>
 </resources>

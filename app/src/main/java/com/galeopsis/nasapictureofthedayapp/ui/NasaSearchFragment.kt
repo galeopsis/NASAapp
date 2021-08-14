@@ -72,11 +72,11 @@ class NasaSearchFragment : Fragment() {
                     requireActivity().findViewById<View>(R.id.bottom_sheet_description) as TextView
                 val bsTvTitle =
                     requireActivity().findViewById<View>(R.id.bottom_sheet_description_header) as TextView
-                bsTvDescription.text = nasaData.explanation
+                val bsTvDate =
+                    requireActivity().findViewById<View>(R.id.the_date) as TextView
+                bsTvDate.text = nasaData.date
                 bsTvTitle.text = nasaData.title
-
-                val date = nasaData.date
-                binding.dateTv.text = date
+                bsTvDescription.text = nasaData.explanation
 
                 val imageClick = binding.photoView
                 val pictureUrl = nasaData.url
