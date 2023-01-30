@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardViewContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -41,16 +42,19 @@
 
         <com.github.chrisbanes.photoview.PhotoView
             android:id="@+id/photoView"
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="366dp"
+            android:layout_height="454dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.355"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/input_layout" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/app_margin_top"
+            android:layout_marginBottom="25dp"
             android:backgroundTint="@color/teal_200"
             android:contentDescription="@string/todo"
             app:layout_constraintBottom_toBottomOf="@id/cardViewContainer"
@@ -62,14 +66,12 @@
             android:id="@+id/dateTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/app_margin_top"
-            android:layout_marginBottom="@dimen/app_margin_top"
             android:text="@string/date"
             android:textColor="@color/white"
             android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@id/fab"
-            app:layout_constraintTop_toBottomOf="@id/photoView"
-            />
+            app:layout_constraintBottom_toTopOf="@+id/fab"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/photoView" />
 
         <FrameLayout
             android:id="@+id/loadingLayout"
@@ -78,8 +80,7 @@
             android:background="@drawable/stars"
             android:visibility="gone"
             tools:layout_editor_absoluteX="17dp"
-            tools:layout_editor_absoluteY="16dp"
-            tools:visibility="invisible">
+            tools:layout_editor_absoluteY="16dp">
 
             <ProgressBar
                 style="?android:attr/progressBarStyleLarge"

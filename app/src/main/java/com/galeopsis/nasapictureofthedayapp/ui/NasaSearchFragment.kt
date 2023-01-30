@@ -58,12 +58,11 @@ class NasaSearchFragment : Fragment() {
     private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-
     }
 
     private fun initData() {
 
-        mainViewModel.data.observe(viewLifecycleOwner, {
+        mainViewModel.data.observe(viewLifecycleOwner) {
 
             it?.forEach { nasaData ->
 
@@ -102,9 +101,9 @@ class NasaSearchFragment : Fragment() {
                     }
                 }
             }
-        })
+        }
 
-        mainViewModel.loadingState.observe(viewLifecycleOwner, {
+        mainViewModel.loadingState.observe(viewLifecycleOwner) {
             when (it.status) {
                 LoadingState.Status.FAILED -> {
                     Toast.makeText(context, "Something wrong!", Toast.LENGTH_SHORT).show()
@@ -115,7 +114,7 @@ class NasaSearchFragment : Fragment() {
                 LoadingState.Status.SUCCESS ->
                     binding.loadingLayout.visibility = View.GONE
             }
-        })
+        }
     }
 
     private fun listeners() {
