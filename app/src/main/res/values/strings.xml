@@ -38,4 +38,7 @@
     <string name="this_is_the_test_text">This is the test text</string>
     <string name="wiki_search">Wiki Search</string>
     <string name="_2021_01_01">2021/01/01</string>
+    <string name="image">image</string>
+    <string name="date_picker">date picker</string>
+    <string name="image_description">image description</string>
 </resources>
