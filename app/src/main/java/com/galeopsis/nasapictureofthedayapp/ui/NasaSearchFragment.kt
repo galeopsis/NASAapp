@@ -1,5 +1,6 @@
 package com.galeopsis.nasapictureofthedayapp.ui
 
+import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
@@ -10,7 +11,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.addCallback
+import androidx.appcompat.widget.PopupMenu
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.Typeface
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.galeopsis.nasapictureofthedayapp.R
@@ -46,18 +51,93 @@ class NasaSearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             activity?.finish()
-
         }
+        binding.menuButton.setOnClickListener {
+            val popupMenu = context?.let { it1 -> PopupMenu(it1, it) }
+            popupMenu?.menuInflater?.inflate(R.menu.main_menu, popupMenu.menu)
+            popupMenu?.setOnMenuItemClickListener { menuItem ->
 
+                // Обработка выбора пункта меню
+                when (menuItem.itemId) {
+                    R.id.mars_theme -> {
+                        setMarsTheme()
+                        true
+                    }
+                    R.id.moon_theme -> {
+                        setMoonTheme()
+                        true
+                    }
+                    R.id.default_theme -> {
+                        setDefaultTheme()
+                        true
+                    }
+                    else -> false
+                }
+            }
+            popupMenu?.show()
+        }
         initData()
         listeners()
     }
 
 //*******Function section****************
 
+    private fun setDefaultTheme() {
+        with(binding) {
+            cardViewContainer.setBackgroundResource(R.drawable.stars)
+            datePickerTitle.typeface =
+                context?.let { ResourcesCompat.getFont(it, R.font.ptserif_italic) }
+        }
+
+    }
+
+    private fun setMoonTheme() {
+        with(binding) {
+            cardViewContainer.setBackgroundResource(R.drawable.moon_background)
+            datePickerTitle.typeface =
+                context?.let { ResourcesCompat.getFont(it, R.font.ptserif_bold) }
+        }
+    }
+
+    private fun setMarsTheme() {
+        with(binding) {
+            cardViewContainer.setBackgroundResource(R.drawable.mars_background)
+            datePickerTitle.typeface =
+                context?.let { ResourcesCompat.getFont(it, R.font.ptserif_regular) }
+        }
+    }
+
+
     private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+        bottomSheetBehavior.addBottomSheetCallback(object :
+            BottomSheetBehavior.BottomSheetCallback() {
+            @SuppressLint("SwitchIntDef")
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                when (newState) {
+                    BottomSheetBehavior.STATE_COLLAPSED -> {
+                        // BottomSheet скрыт
+                        binding.fab.isEnabled = true
+                        binding.inputLayout.isEnabled = true
+                    }
+                    BottomSheetBehavior.STATE_EXPANDED -> {
+                        // BottomSheet отображается полностью
+                        binding.fab.isEnabled = false
+                        binding.inputLayout.isEnabled = false
+                    }
+                    BottomSheetBehavior.STATE_HIDDEN -> {
+                        // BottomSheet скрыт полностью
+                        binding.fab.isEnabled = true
+                        binding.inputLayout.isEnabled = true
+                    }
+                }
+            }
+
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                // Пользователь перемещает BottomSheet
+            }
+        })
     }
 
     private fun initData() {
@@ -67,19 +147,18 @@ class NasaSearchFragment : Fragment() {
             it?.forEach { nasaData ->
 
                 view?.let { it1 -> setBottomSheetBehavior(it1.findViewById(R.id.bottom_sheet_container)) }
-                val bsTvDescription =
+                val bottomSheetDescription =
                     requireActivity().findViewById<View>(R.id.bottom_sheet_description) as TextView
-                val bsTvTitle =
+                val bottomSheetTitle =
                     requireActivity().findViewById<View>(R.id.bottom_sheet_description_header) as TextView
-                val bsTvDate =
+                val bottomSheetDate =
                     requireActivity().findViewById<View>(R.id.the_date) as TextView
-                bsTvDate.text = nasaData.date
-                bsTvTitle.text = nasaData.title
-                bsTvDescription.text = nasaData.explanation
+                bottomSheetDate.text = nasaData.date
+                bottomSheetTitle.text = nasaData.title
+                bottomSheetDescription.text = nasaData.explanation
 
                 val imageClick = binding.photoView
                 val pictureUrl = nasaData.url
-//                val hdPicture = nasaData.hdurl
                 val mediaType = nasaData.media_type
 
                 if (mediaType.equals("video")) {
@@ -142,7 +221,7 @@ class NasaSearchFragment : Fragment() {
                     if (resultKey == "REQUEST_KEY") {
 
                         val date = myDate(bundle)
-                        binding.dateTv.text = date
+                        binding.datePickerTitle.text = date
                         if (date != null) {
                             mainViewModel.fetchData(date)
                             initData()
@@ -175,8 +254,5 @@ class NasaSearchFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        activity?.supportFragmentManager?.beginTransaction()
-            ?.remove(newInstance())
-            ?.commitNow()
     }
 }
