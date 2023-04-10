@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardViewContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/stars"
+        style="@style/default_style"
         android:orientation="horizontal"
         android:padding="16dp">
 
@@ -23,6 +23,7 @@
             app:boxBackgroundColor="?android:attr/textColorTertiaryInverse"
             app:counterEnabled="true"
             app:counterMaxLength="20"
+            android:layout_marginEnd="60dp"
             app:counterTextColor="@color/white"
             app:endIconCheckable="true"
             app:endIconDrawable="@drawable/ic_wikipedia"
@@ -37,9 +38,15 @@
                 android:id="@+id/input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/search"
                 android:inputType="text" />
+
         </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/menu_button"
+            style="@style/image_menu_button_style"
+            app:layout_constraintEnd_toEndOf="@id/cardViewContainer"
+            app:layout_constraintTop_toTopOf="@id/cardViewContainer"/>
 
         <com.github.chrisbanes.photoview.PhotoView
             android:id="@+id/photoView"
@@ -54,10 +61,7 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:backgroundTint="@color/teal_200"
+            style="@style/fab_style"
             android:contentDescription="@string/date_picker"
             app:layout_constraintBottom_toBottomOf="@id/cardViewContainer"
             app:layout_constraintEnd_toEndOf="@id/cardViewContainer"
@@ -65,7 +69,7 @@
             app:tint="#FFFFFF" />
 
         <TextView
-            android:id="@+id/dateTv"
+            android:id="@+id/datePickerTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/date"
@@ -90,6 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center" />
         </FrameLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

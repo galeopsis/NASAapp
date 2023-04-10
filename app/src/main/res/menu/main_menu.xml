@@ -2,23 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_adult"
-        android:title="@string/adult"
+        android:id="@+id/mars_theme"
+        android:title="@string/mars_theme"
         app:showAsAction="never"
         android:orderInCategory="3"
-        android:checked="true"
-        android:checkable="true"/>
+        />
     <item
-        android:id="@+id/action_clear_history"
-        android:icon="@drawable/ic_baseline_clear_24"
-        android:orderInCategory="2"
-        android:title="@string/settings"
-        app:showAsAction="ifRoom" />
+        android:id="@+id/moon_theme"
+        android:title="@string/moon_theme"
+        app:showAsAction="never"
+        android:orderInCategory="3"
+        />
     <item
-        android:id="@+id/action_search"
-        android:icon="@android:drawable/ic_menu_search"
-        android:orderInCategory="1"
-        android:title="@string/search"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="ifRoom" />
+        android:id="@+id/default_theme"
+        android:title="@string/default_theme"
+        app:showAsAction="never"
+        android:orderInCategory="3"/>
 </menu>
