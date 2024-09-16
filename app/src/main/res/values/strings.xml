@@ -41,4 +41,10 @@
     <string name="image">image</string>
     <string name="date_picker">date picker</string>
     <string name="image_description">image description</string>
+    <string name="menu">Menu</string>
+    <string name="dark_mode">Стандартная тема</string>
+    <string name="mars_theme">Марсианская тема</string>
+    <string name="star_theme">Звёздная тема</string>
+    <string name="moon_theme">Лунная тема</string>
+    <string name="default_theme">Стандартная тема</string>
 </resources>

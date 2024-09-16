@@ -4,4 +4,32 @@
         <item name="android:background">@color/black_overlay</item>
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
+
+    <style name = "image_menu_button_style" parent="">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:src">@drawable/menu</item>
+        <item name="android:backgroundTint">@color/black_overlay</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name = "fab_style" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">35dp</item>
+        <item name="android:backgroundTint">@color/teal_200</item>
+    </style>
+
+    <style name = "mars_style" parent="">
+        <item name="android:background">@drawable/mars_background</item>
+    </style>
+
+    <style name = "moon_style" parent="">
+        <item name="android:background">@drawable/moon_background</item>
+    </style>
+
+    <style name = "default_style" parent="">
+        <item name="android:background">@drawable/stars</item>
+    </style>
+
 </resources>
